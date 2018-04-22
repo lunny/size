@@ -4,6 +4,7 @@
 package size
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -69,5 +70,6 @@ func TestErrorSizeParse(t *testing.T) {
 	for _, k := range kases {
 		_, err := ParseSize(k)
 		assert.Error(t, err)
+		assert.EqualValues(t, fmt.Sprintf("size format %s is not corrected", k), err.Error())
 	}
 }

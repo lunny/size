@@ -15,7 +15,7 @@ type ErrSizeFormat string
 
 // Error implements error interface
 func (e ErrSizeFormat) Error() string {
-	return fmt.Sprintf("size format %s is not corrected", e)
+	return fmt.Sprintf("size format %s is not corrected", string(e))
 }
 
 // Size represents a size type
