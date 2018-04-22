@@ -1,6 +1,10 @@
-# Size
+Size
+=======================
 
-The size is a simple package to handle memory or disk size calculation or format
+[![CircleCI](https://circleci.com/gh/lunny/size.svg?style=shield)](https://circleci.com/gh/lunny/size)  [![codecov](https://codecov.io/gh/lunny/size/branch/master/graph/badge.svg)](https://codecov.io/gh/lunny/size)
+[![](https://goreportcard.com/badge/github.com/lunny/size)](https://goreportcard.com/report/github.com/lunny/size)
+
+Package size is a simple package to handle memory or disk size calculation or format
 
 # Installation
 
