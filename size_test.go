@@ -22,6 +22,7 @@ func TestParseSize(t *testing.T) {
 		{"1.67M", 1.67 * M},
 		{"1.011T", 1.011 * T},
 		{"0.1P", 0.1 * P},
+		{"10P", 10 * P},
 	}
 
 	for _, k := range kases {
@@ -36,15 +37,37 @@ func TestFormatSize(t *testing.T) {
 		Size   Size
 		Format string
 	}{
+		{0, "0B"},
 		{10 * B, "10B"},
 		{2 * K, "2K"},
 		{3 * M, "3M"},
 		{4 * G, "4G"},
 		{1.67 * M, "1.67M"},
 		{1.011 * T, "1.011T"},
+		{15 * P, "15P"},
 	}
 
 	for _, k := range kases {
 		assert.EqualValues(t, k.Format, k.Size.String())
+	}
+}
+
+func TestErrorSizeParse(t *testing.T) {
+	var kases = []string{
+		"10BB",
+		"",
+		"B",
+		"K",
+		"M",
+		"G",
+		"T",
+		"P",
+		"2-1K",
+		"1*2",
+		"-1K",
+	}
+	for _, k := range kases {
+		_, err := ParseSize(k)
+		assert.Error(t, err)
 	}
 }
